@@ -4,9 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>이미 일어난 일처럼</title>
-    <meta name="description" content="조 디스펜자 · 아홉 주의 회복" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600&display=swap" />
     <style>
       :root { color-scheme: dark; }
       html, body { margin: 0; height: 100%; background: #07070a; }
@@ -20,12 +19,18 @@
         pointer-events: none;
       }
       .caption p {
-        margin: 0 auto; max-width: 22.5rem;
+        margin: 0 auto; max-width: 22.5rem; min-height: 4.8rem;
         font-family: "Noto Serif KR", Georgia, serif;
         font-size: 1.55rem; font-weight: 500; line-height: 1.55;
         letter-spacing: -0.01em; color: #f3efe6; text-align: center;
         text-shadow: 0 2px 24px rgba(0,0,0,.4);
       }
+      .caret {
+        display: inline-block; width: 2px; height: 1.05em; margin-left: 4px;
+        vertical-align: -0.12em; background: currentColor;
+        animation: caret 0.9s steps(1) infinite;
+      }
+      @keyframes caret { 50% { opacity: 0; } }
       .hint {
         position: absolute; left: 50%; top: 44%; transform: translate(-50%,-50%);
         z-index: 4; padding: .9rem 1.25rem; border: 0; border-radius: 999px;
@@ -45,36 +50,36 @@
   </head>
   <body>
     <div class="stage">
-      <video id="film" src="film.mp4?v=en2" poster="poster.jpg" autoplay muted playsinline controls preload="auto"></video>
+      <video id="film" src="film.mp4?v=en3" poster="poster.jpg" autoplay muted playsinline controls preload="auto"></video>
       <div class="title" id="title">
         <small>조 디스펜자 · 아홉 주의 회복</small>
         <h1>이미 일어난 일처럼</h1>
       </div>
-      <div class="caption"><p id="caption">1986년. 한 젊은 의사가 인생을 바꾸는 사고를 당했습니다.</p></div>
+      <div class="caption"><p id="caption"></p></div>
       <button class="hint" id="hint" type="button">화면을 탭하면 내레이션이 켜집니다</button>
     </div>
     <script>
       const shots = [
-        [6.43, "1986년. 한 젊은 의사가 인생을 바꾸는 사고를 당했습니다."],
-        [5.75, "자전거 경기 도중, 사륜구동 차량과 충돌했습니다."],
-        [5.8, "의사는 말했습니다. 척추 수술이 아니면, 다시 걷지 못할 수도 있다고."],
-        [5.2, "그는 수술을 거부했습니다. 그리고 스스로 치유하기로 결심했습니다."],
-        [4.4, "매일 밤, 잠들기 전 이십 분."],
-        [4.82, "그는 척추가 완전히 회복된 모습을, 선명하게 그려냈습니다."],
-        [6.79, "이미 일어난 일처럼. 현관문을 열고 스스로 걸어나가는 감각까지."],
-        [5.42, "하루도 빠짐없이. 구 주 동안."],
-        [4.4, "몸이 천천히 반응하기 시작했습니다."],
-        [4.82, "구 주 후, 그는 병상에서 일어나 스스로 걸었습니다."],
-        [5.32, "십이 주 뒤, 그는 다시 흰 가운을 입고 진료실로 돌아갔습니다."],
-        [5.97, "피아노를 상상만 해도, 실제 연습과 비슷한 뇌 변화가 일어납니다."],
-        [5.42, "환경이 바뀌면, 몸의 나이도 달라집니다."],
-        [4.46, "압박 속에서도 확언을 반복한 사람은,"],
-        [4.4, "흔들리지 않았습니다."],
-        [4.4, "결국 결과를 바꿨습니다."],
-        [4.46, "잠들기 전, 스마트폰을 멀리 두세요."],
-        [4.94, "원하는 단 한 장면을, 이미 일어난 것처럼 느끼세요."],
-        [4.4, "그리고 감사함을 느끼세요."],
-        [4.99, "몸이 바뀌기 전에, 마음이 먼저 바뀝니다."]
+        [5.66, "1986년. 한 젊은 의사가 인생을 바꾸는 사고를 당했습니다."],
+        [4.98, "자전거 경기 도중, 사륜구동 차량과 충돌했습니다."],
+        [5.03, "의사는 말했습니다. 척추 수술이 아니면, 다시 걷지 못할 수도 있다고."],
+        [4.43, "그는 수술을 거부했습니다. 그리고 스스로 치유하기로 결심했습니다."],
+        [3.5, "매일 밤, 잠들기 전 이십 분."],
+        [4.05, "그는 척추가 완전히 회복된 모습을, 선명하게 그려냈습니다."],
+        [6.02, "이미 일어난 일처럼. 현관문을 열고 스스로 걸어나가는 감각까지."],
+        [4.65, "하루도 빠짐없이. 구 주 동안."],
+        [3.59, "몸이 천천히 반응하기 시작했습니다."],
+        [4.05, "구 주 후, 그는 병상에서 일어나 스스로 걸었습니다."],
+        [4.55, "십이 주 뒤, 그는 다시 흰 가운을 입고 진료실로 돌아갔습니다."],
+        [5.2, "피아노를 상상만 해도, 실제 연습과 비슷한 뇌 변화가 일어납니다."],
+        [4.65, "환경이 바뀌면, 몸의 나이도 달라집니다."],
+        [3.69, "압박 속에서도 확언을 반복한 사람은,"],
+        [2.32, "흔들리지 않았습니다."],
+        [3.23, "결국 결과를 바꿨습니다."],
+        [3.69, "잠들기 전, 스마트폰을 멀리 두세요."],
+        [4.17, "원하는 단 한 장면을, 이미 일어난 것처럼 느끼세요."],
+        [2.66, "그리고 감사함을 느끼세요."],
+        [4.22, "몸이 바뀌기 전에, 마음이 먼저 바뀝니다."]
       ];
       const video = document.getElementById("film");
       const caption = document.getElementById("caption");
@@ -83,15 +88,29 @@
       const unlock = () => { video.muted = false; video.play().catch(() => {}); hint.hidden = true; };
       hint.addEventListener("click", unlock);
       video.addEventListener("pointerdown", unlock);
-      video.addEventListener("timeupdate", () => {
-        let t = video.currentTime;
-        title.hidden = t >= 4.2;
-        for (const [dur, text] of shots) {
-          if (t < dur) { caption.textContent = text; return; }
-          t -= dur;
+
+      function typeCaption(text, local, duration) {
+        const finishBy = Math.max(Math.min(duration * 0.58, 2.4), 0.55);
+        const n = Math.min(text.length, Math.floor((local / finishBy) * text.length) + 1);
+        return text.slice(0, Math.max(n, 0));
+      }
+
+      function render() {
+        const t = video.currentTime || 0;
+        title.hidden = t >= 3.2;
+        let remain = t;
+        let dur = shots[0][0];
+        let text = shots[0][1];
+        for (const [d, line] of shots) {
+          if (remain < d) { dur = d; text = line; break; }
+          remain -= d;
         }
-        caption.textContent = shots[shots.length - 1][1];
-      });
+        const typed = typeCaption(text, remain, dur);
+        const caret = typed.length < text.length ? '<span class="caret"></span>' : "";
+        caption.innerHTML = typed + caret;
+        requestAnimationFrame(render);
+      }
+      requestAnimationFrame(render);
       video.play().catch(() => {});
     </script>
   </body>
