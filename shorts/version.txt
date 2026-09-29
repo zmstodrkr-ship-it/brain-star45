@@ -1,0 +1,2 @@
+STAR45 Shorts MVP v0.1.0
+Deploy trigger: 2026-09-30
