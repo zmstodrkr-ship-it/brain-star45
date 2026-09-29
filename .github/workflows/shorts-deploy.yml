@@ -1,0 +1,88 @@
+name: STAR45 Shorts deploy
+on:
+  pull_request:
+    paths:
+      - 'shorts/**'
+      - 'tests/smoke-single.mjs'
+      - '.github/workflows/shorts-deploy.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'shorts/**'
+      - '.github/workflows/shorts-deploy.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: brain-star45-shorts-deploy
+  cancel-in-progress: false
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/smoke-single.mjs
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: test
+    runs-on: [self-hosted, Linux, X64]
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Locate live root, backup, deploy shorts, verify, rollback on failure
+        shell: bash
+        run: |
+          set -euo pipefail
+          LIVE_INDEX="$(grep -Rsl --include='index.html' '이미 일어난 일처럼' /var/www /srv /opt 2>/dev/null | head -n 1 || true)"
+          if [ -z "$LIVE_INDEX" ]; then
+            CONF="$(grep -Rsl 'server_name.*brain\.star45\.net' /etc/nginx/sites-enabled /etc/nginx/conf.d 2>/dev/null | head -n 1 || true)"
+            if [ -n "$CONF" ]; then
+              LIVE_ROOT="$(awk '$1=="root" {gsub(";","",$2); print $2; exit}' "$CONF")"
+            else
+              LIVE_ROOT=""
+            fi
+          else
+            LIVE_ROOT="$(dirname "$LIVE_INDEX")"
+          fi
+          if [ -z "${LIVE_ROOT:-}" ] || [ ! -d "$LIVE_ROOT" ]; then
+            echo 'Unable to locate brain.star45.net static document root'
+            exit 1
+          fi
+          echo "Live root: $LIVE_ROOT"
+          TARGET="$LIVE_ROOT/shorts"
+          STAGE="$LIVE_ROOT/.shorts-next-${GITHUB_RUN_ID}"
+          BACKUP="$LIVE_ROOT/.shorts-backup-${GITHUB_RUN_ID}"
+          sudo rm -rf "$STAGE"
+          sudo mkdir -p "$STAGE"
+          sudo cp -a shorts/. "$STAGE/"
+          if [ -d "$TARGET" ]; then sudo mv "$TARGET" "$BACKUP"; fi
+          sudo mv "$STAGE" "$TARGET"
+          verify() {
+            curl -kfsSL --max-time 15 -H 'Host: brain.star45.net' http://127.0.0.1/shorts/ | grep -q 'STAR45 Shorts'
+          }
+          if verify; then
+            echo 'STAR45_SHORTS_LOCAL_HTTP_PASS'
+            [ -d "$BACKUP" ] && sudo rm -rf "$BACKUP"
+          else
+            echo 'Verification failed; rolling back'
+            sudo rm -rf "$TARGET"
+            [ -d "$BACKUP" ] && sudo mv "$BACKUP" "$TARGET"
+            exit 1
+          fi
+  public:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Public HTTPS verify
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 5 --retry-delay 5 --max-time 20 https://brain.star45.net/shorts/ | grep -q 'STAR45 Shorts'
+          echo 'STAR45_SHORTS_PUBLIC_HTTPS_PASS'
