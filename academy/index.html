@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STAR45 Revenue Academy</title>
+<style>
+:root{--navy:#10233d;--blue:#1f5aa6;--bg:#f4f7fb;--card:#fff;--line:#dfe6ef;--text:#182230;--muted:#6d7888;--green:#1a8f54;--orange:#c56b00;--red:#b43333;font-family:Inter,Pretendard,system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}button,a,input,select,textarea{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:235px 1fr}
+aside{background:var(--navy);color:#fff;padding:20px 14px;position:sticky;top:0;height:100vh}.brand{font-weight:900;letter-spacing:.04em;padding:8px 9px 20px}.brand small{display:block;font-size:10px;color:#aebfd3;margin-top:5px}
+nav{display:grid;gap:5px}nav button{border:0;background:transparent;color:#d5dfec;text-align:left;padding:11px 12px;border-radius:10px;cursor:pointer}nav button.on{background:#1f3b5e;color:#fff}
+main{padding:0 26px 50px;max-width:1500px;width:100%}.top{min-height:104px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}h1{font-size:25px;margin:0 0 5px}.muted{color:var(--muted);font-size:12px}.view{display:none;padding-top:24px}.view.on{display:block}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.section{margin:26px 0 12px}.section h2{margin:0;font-size:18px}.stepper{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:14px}.step{background:#eef3f9;border:1px solid var(--line);border-radius:12px;padding:10px;min-height:72px}.step b{display:block;font-size:11px}.step span{font-size:9px;color:var(--muted)}.tag,.badge{display:inline-block;border-radius:999px;padding:5px 8px;font-size:9px;border:1px solid var(--line);background:#f7f9fc}.pass{color:var(--green);background:#eefaf3}.demo{color:#725600;background:#fff7d6}.partial{color:var(--orange);background:#fff5e8}.danger{color:var(--red);background:#fff0f0}.primary{background:var(--blue);color:#fff;border:0;border-radius:9px;padding:9px 12px;cursor:pointer}.ghost{background:#fff;color:var(--text);border:1px solid var(--line);border-radius:9px;padding:8px 10px;cursor:pointer}.model h3,.channel h3{margin:8px 0 6px;font-size:14px}.model p,.channel p{font-size:11px;color:var(--muted);line-height:1.55}.model ul,.channel ul{padding-left:17px;font-size:10px;color:#465264}.country{border-left:4px solid var(--blue)}.kpi strong{display:block;font-size:24px;margin:6px 0}.kpi small{color:var(--muted)}table{width:100%;border-collapse:collapse;font-size:11px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}th,td{border-bottom:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}th{background:#f2f6fb}.form{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr auto;gap:8px}.form input,.form select{padding:10px;border:1px solid var(--line);border-radius:8px;background:#fff}.refs{display:grid;gap:9px;margin-top:12px}.ref{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}.ref a{color:var(--blue);text-decoration:none;font-weight:700;font-size:11px}.ref p{font-size:10px;color:var(--muted);margin:7px 0}.approval{display:grid;grid-template-columns:1fr 1fr;gap:14px}.checklist{display:grid;gap:8px}.check{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:9px;background:#fff}.check input{margin-top:2px}.ptbar{position:fixed;right:18px;bottom:18px;z-index:20}.pt{display:none;position:fixed;inset:0;background:#0d1b2e;color:#fff;z-index:30;padding:5vh 6vw}.pt.on{display:flex;flex-direction:column}.pt .slide{display:none;flex:1}.pt .slide.on{display:flex;flex-direction:column;justify-content:center}.pt h2{font-size:44px;margin:0 0 18px}.pt p,.pt li{font-size:21px;line-height:1.5}.ptnav{display:flex;justify-content:space-between;align-items:center}.arch{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:12px}.arch .card{text-align:center}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.flow .card{min-height:110px}.note{background:#fff9e8;border:1px solid #f1dfb0;border-radius:10px;padding:10px;font-size:10px;color:#6b5518}.help{font-size:11px;line-height:1.6}
+@media(max-width:1000px){.grid3,.grid4{grid-template-columns:repeat(2,1fr)}.approval,.arch{grid-template-columns:1fr}.stepper,.flow{grid-template-columns:repeat(2,1fr)}.form{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.app{display:block}aside{position:static;height:auto}.brand{padding-bottom:10px}nav{grid-template-columns:repeat(3,1fr)}nav button{text-align:center;font-size:10px}.top{min-height:90px}.grid2,.grid3,.grid4,.form,.stepper,.flow{grid-template-columns:1fr}main{padding:0 14px 90px}.pt h2{font-size:30px}.pt p,.pt li{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside><div class="brand">★ STAR45<small>Revenue Academy</small></div>
+<nav id="nav">
+<button class="on" data-v="overview">개요</button><button data-v="models">수익모델</button><button data-v="markets">국가시장</button>
+<button data-v="channels">채널·배포처</button><button data-v="wizard">연결·셋팅</button><button data-v="ads">Google Ads 승인</button>
+<button data-v="factory">자동화 숏츠앱</button><button data-v="references">참조자료</button><button data-v="dashboard">수익 대시보드</button>
+<button data-v="help">도움말</button>
+</nav></aside>
+<main>
+<header class="top"><div><h1 id="title">STAR45 Revenue Academy</h1><div id="desc" class="muted">숏폼·쇼핑·앱·글로벌 수익화 교육·PT·실행 가이드</div></div><div><span class="badge demo">GUIDE / DEMO</span></div></header>
+
+<section id="overview" class="view on">
+<div class="card"><div class="row"><div><span class="tag">6-STEP EXECUTION</span><h2>수익화 실행 흐름</h2></div><button class="primary" data-go="wizard">설정 시작 →</button></div>
+<div class="stepper">
+<div class="step"><b>① 수익모델 선택</b><span>광고·쇼핑·제휴·앱·음악</span></div><div class="step"><b>② 국가 선택</b><span>KR · JP · US · VN</span></div>
+<div class="step"><b>③ 연결 상태 점검</b><span>YouTube · TikTok · Meta 등</span></div><div class="step"><b>④ 공식설정 따라하기</b><span>공식화면·체크리스트</span></div>
+<div class="step"><b>⑤ 제작·업로드</b><span>AI 제작·다채널 배포</span></div><div class="step"><b>⑥ 실제 수익 분석</b><span>조회→클릭→구매→순익</span></div>
+</div></div>
+<div class="section"><h2>사업 구조</h2></div>
+<div class="arch"><div class="card"><b>INPUT</b><p class="muted">URL · 텍스트 · 이미지 · 동영상 · 상품 · 키워드</p></div><div class="card"><b>AI REVENUE ENGINE</b><p class="muted">Trend Finder · GLOBAL GAP · Hook Analyzer · Script · Localizer · Rights Checker · Publisher · Revenue Optimizer</p></div><div class="card"><b>OUTPUT</b><p class="muted">Shorts · Reels · TikTok · Threads · 쇼핑 · 앱 · 음악</p></div></div>
+<div class="section"><h2>운영 원칙</h2></div><div class="grid3">
+<div class="card"><b>조회보다 전환</b><p class="muted">조회수보다 CTR·구매율·마진·재구매를 우선 평가</p></div>
+<div class="card"><b>복제가 아니라 재창작</b><p class="muted">원본 무단 재업로드 금지, 새 대본·해설·그래픽 중심</p></div>
+<div class="card"><b>국가별 분리</b><p class="muted">언어·문화·제휴망이 다르면 채널과 콘텐츠 전략도 분리</p></div></div>
+</section>
+
+<section id="models" class="view"><div class="row"><div><h2>수익모델 MASTER</h2><p class="muted">각 모델은 국가·채널·수익지점을 함께 설계합니다.</p></div><span class="badge">12 Models</span></div>
+<div id="modelGrid" class="grid3" style="margin-top:12px"></div></section>
+
+<section id="markets" class="view"><h2>국가별 시장 선택</h2><p class="muted">실시간 시장수치는 연결 전이며, 아래는 전략용 가이드입니다.</p>
+<div class="grid4" style="margin-top:12px">
+<div class="card country"><b>🇰🇷 한국</b><p class="muted">쇼핑숏츠·Threads·과일·리셀·트롯·앱</p><span class="badge pass">초기 검증시장</span></div>
+<div class="card country"><b>🇯🇵 일본</b><p class="muted">일본 비밀숏츠·생활정보·쇼핑·AI 음악</p><span class="badge">GAP 공략</span></div>
+<div class="card country"><b>🇺🇸 미국</b><p class="muted">Faceless·AI Apps·Affiliate·AI Music</p><span class="badge">대형시장</span></div>
+<div class="card country"><b>🇻🇳 베트남</b><p class="muted">K-food·한국상품·TikTok Commerce·앱</p><span class="badge">현지사업 연계</span></div>
+</div>
+<div class="section"><h2>GLOBAL GAP FINDER <span class="badge demo">SAMPLE</span></h2></div>
+<table><thead><tr><th>발견 시장</th><th>확장 시장</th><th>판단</th><th>실행</th></tr></thead><tbody>
+<tr><td>미국에서 급상승</td><td>일본</td><td>경쟁 콘텐츠가 적은 경우 JAPAN GAP</td><td>일본어 현지화·새 대본 제작</td></tr>
+<tr><td>한국에서 급상승</td><td>베트남</td><td>관련 콘텐츠가 적은 경우 VIETNAM GAP</td><td>베트남어·현지 CTA로 재기획</td></tr>
+</tbody></table></section>
+
+<section id="channels" class="view"><div class="row"><div><h2>숏츠·숏폼 배포처</h2><p class="muted">연결 상태는 실제 API 연동 전까지 GUIDE/DEMO로 표시합니다.</p></div></div><div id="channelGrid" class="grid3" style="margin-top:12px"></div></section>
+
+<section id="wizard" class="view"><h2>연결·셋팅 마법사</h2><p class="muted">모델과 국가를 선택하면 권장 채널 및 공식 설정 링크를 보여줍니다.</p>
+<div class="grid2" style="margin-top:12px"><div class="card"><label>수익모델</label><select id="wizModel" style="width:100%;margin:8px 0 14px;padding:10px;border:1px solid var(--line);border-radius:8px"><option>비밀숏츠</option><option>쇼핑숏츠</option><option>간단 앱 + AdMob</option><option>AI 음악</option></select>
+<label>국가</label><select id="wizCountry" style="width:100%;margin:8px 0 14px;padding:10px;border:1px solid var(--line);border-radius:8px"><option>한국</option><option>일본</option><option>미국</option><option>베트남</option></select><button id="recommend" class="primary">추천 채널 보기</button></div>
+<div class="card"><b>권장 연결</b><div id="wizOut" class="checklist" style="margin-top:10px"></div></div></div>
+<div class="section"><h2>연결 상태</h2></div><div id="connectGrid" class="grid3"></div></section>
+
+<section id="ads" class="view"><div class="row"><div><h2>Google Ads 승인센터</h2><p class="muted">웹사이트 AdSense와 모바일 앱 AdMob을 분리해서 준비합니다.</p></div><span class="badge danger">승인은 Google 심사</span></div>
+<div class="approval" style="margin-top:12px">
+<div class="card"><h3>A. Google AdSense 승인</h3><div id="adsenseChecks" class="checklist"></div><div style="margin-top:12px"><a class="ghost" target="_blank" href="https://support.google.com/adsense/">공식 도움말</a> <a class="ghost" target="_blank" href="https://www.google.com/adsense/start/">AdSense 시작</a></div></div>
+<div class="card"><h3>B. Google AdMob 승인</h3><div id="admobChecks" class="checklist"></div><div style="margin-top:12px"><a class="ghost" target="_blank" href="https://support.google.com/admob/">공식 도움말</a> <a class="ghost" target="_blank" href="https://admob.google.com/">AdMob</a></div></div>
+</div>
+<div class="note" style="margin-top:12px">승인을 위한 고정 콘텐츠 개수·고정 기간을 보장하지 않습니다. 독창성, 정책준수, 사이트/앱 품질 및 Google의 실제 심사가 기준입니다.</div></section>
+
+<section id="factory" class="view"><div class="row"><div><h2>자동화 숏츠앱 만들기</h2><p class="muted">분석→제작→다채널 배포→수익→재학습까지의 앱 설계도</p></div><span class="badge">10 STEP</span></div>
+<div id="factoryFlow" class="flow" style="margin-top:12px"></div>
+<div class="section"><h2>앱 기능 설계도</h2></div><div class="arch"><div class="card"><b>INPUT</b><p class="muted">URL / 텍스트 / 이미지 / 동영상 / 상품 / 키워드</p></div><div class="card"><b>AI ENGINE</b><p class="muted">Trend Finder · GAP Finder · Reference Analyzer · Hook · Script · TTS · Localizer · Rights Checker · Publisher</p></div><div class="card"><b>OUTPUT</b><p class="muted">YouTube · TikTok · Reels · Facebook · Threads · X · Pinterest · Spotlight · LINE VOOM · Lemon8 · LinkedIn</p></div></div>
+<div class="section"><h2>구축 우선순위</h2></div><table><thead><tr><th>Phase</th><th>목표</th><th>완료기준</th></tr></thead><tbody>
+<tr><td>1</td><td>분석·기획·수동 업로드 보조</td><td>참조 URL 분석카드 + 채널가이드</td></tr><tr><td>2</td><td>콘텐츠 자동생성</td><td>대본·TTS·자막·채널별 포맷</td></tr><tr><td>3</td><td>API 채널 자동업로드</td><td>실제 인증·테스트 게시 PASS</td></tr><tr><td>4</td><td>성과·수익 데이터 수집</td><td>조회·클릭·구매·수익 수집</td></tr><tr><td>5</td><td>AI 자동최적화</td><td>성과 기반 다음 콘텐츠 추천</td></tr>
+</tbody></table></section>
+
+<section id="references" class="view"><div class="row"><div><h2>참조자료 라이브러리</h2><p class="muted">URL을 등록하면 분류·활용·검증상태 카드를 생성합니다.</p></div><span class="badge partial">본문 미확인시 PARTIAL</span></div>
+<div class="card" style="margin-top:12px"><div class="form"><input id="refUrl" placeholder="YouTube/웹 URL"><input id="refTitle" placeholder="제목 또는 메모"><select id="refType"><option>자동분류</option><option>일본숏츠</option><option>비밀숏츠</option><option>동영상 만들기 툴 소개</option><option>자동화 숏츠앱 만들기</option></select><select id="refCountry"><option>글로벌</option><option>한국</option><option>일본</option><option>미국</option><option>베트남</option></select><button id="addRef" class="primary">분석 등록</button></div></div>
+<div id="refList" class="refs"></div></section>
+
+<section id="dashboard" class="view"><div class="row"><div><h2>수익 대시보드</h2><p class="muted">실연동 전 SAMPLE 데이터입니다.</p></div><span class="badge demo">SAMPLE</span></div>
+<div class="grid4" style="margin-top:12px"><div class="card kpi"><small>조회</small><strong>284K</strong><small>SAMPLE</small></div><div class="card kpi"><small>링크 CTR</small><strong>3.8%</strong><small>SAMPLE</small></div><div class="card kpi"><small>구매</small><strong>217</strong><small>SAMPLE</small></div><div class="card kpi"><small>순이익</small><strong>₩1.84M</strong><small>SAMPLE</small></div></div>
+<div class="section"><h2>성과 → 다음 콘텐츠</h2></div><table><thead><tr><th>국가</th><th>채널</th><th>모델</th><th>관찰</th><th>다음 행동</th></tr></thead><tbody><tr><td>일본</td><td>YouTube Shorts</td><td>일본숏츠</td><td>가격비교형 훅 CTR 우세</td><td>가격비교 3종 추가 테스트</td></tr><tr><td>한국</td><td>Threads</td><td>쇼핑</td><td>정보형보다 경험담형 클릭 우세</td><td>경험담형 CTA 확대</td></tr></tbody></table></section>
+
+<section id="help" class="view"><h2>도움말</h2><div class="grid2" style="margin-top:12px"><div class="card help"><b>상태 표시</b><p>PASS = 실제 확인, PARTIAL = 일부만 확인, DEMO/SAMPLE = 연동 전 예시. 실제 인증 없이 연결 완료로 표시하지 않습니다.</p></div><div class="card help"><b>저작권·정책</b><p>타인의 영상·사진·방송·음원은 권리 확인이 필요합니다. 참조영상은 분석용 링크로 사용하고 무단 다운로드·재업로드를 권하지 않습니다.</p></div></div></section>
+</main></div>
+
+<button id="ptBtn" class="primary ptbar">PT 모드</button>
+<div id="pt" class="pt"><div id="slides" style="flex:1"></div><div class="ptnav"><button id="ptPrev" class="ghost">← 이전</button><span id="ptCount"></span><button id="ptNext" class="ghost">다음 →</button><button id="ptClose" class="ghost">닫기</button></div></div>
+
+<script>
+const views={overview:['STAR45 Revenue Academy','숏폼·쇼핑·앱·글로벌 수익화 교육·PT·실행 가이드'],models:['수익모델','돈이 생기는 지점부터 국가·채널까지 설계합니다.'],markets:['국가시장','한국·일본·미국·베트남을 우선 비교합니다.'],channels:['채널·배포처','숏츠·숏폼 유통망을 한 화면에서 비교합니다.'],wizard:['연결·셋팅','공식 설정화면과 따라하기를 연결합니다.'],ads:['Google Ads 승인센터','AdSense·AdMob 승인 준비를 분리 관리합니다.'],factory:['자동화 숏츠앱','트렌드→제작→배포→수익→재학습 구조입니다.'],references:['참조자료','YouTube·웹 링크를 분석용 자료로 관리합니다.'],dashboard:['수익 대시보드','조회수보다 클릭·구매·순이익을 추적합니다.'],help:['도움말','운영 상태·정책·용어 안내']};
+const models=[
+['비밀숏츠','광고·제휴·상품','KR/JP/US','YouTube Shorts · TikTok','소재발견→재창작→테스트'],
+['일본 비밀숏츠','광고·일본 Affiliate','JP','YouTube Shorts JP · TikTok JP','해외 검증소재→일본 GAP'],
+['일본 일반숏츠','광고·쇼핑','JP','YouTube · TikTok · Reels','일본 현지 트렌드 기반'],
+['일반 숏폼 자동화','광고·제휴·협찬','Global','Shorts · Reels · TikTok','1소재 다채널 변환'],
+['Threads 쇼핑','Affiliate·상품판매','KR/US/JP','Threads','글→링크→구매'],
+['트롯/연예인 정보','광고·팬덤 전환','KR/JP','Shorts · Reels','해설·스토리 중심'],
+['연예인 쇼핑숏츠','쇼핑 커미션','KR/JP/US','Shorts · TikTok · Reels','스타일→유사상품→구매'],
+['과일·채소 쇼핑대행','판매마진·중개','KR/VN','Threads · Reels · TikTok','산지/도매→콘텐츠→주문'],
+['리셀·가격차익','상품마진','KR/US/JP','Threads · Shorts · TikTok','가격 GAP→순마진'],
+['간단 앱 + AdMob','광고·구독·제휴','Global','앱 + 숏폼','숏폼→설치→반복사용'],
+['AI 음악 플레이리스트','광고·음원','US/JP/KR','YouTube','장시간 재생 + Shorts 유입'],
+['GLOBAL GAP FINDER','국가간 기회탐색','Global','전체','어디서 뜨고 어디에 덜 퍼졌나']
+];
+document.querySelector('#modelGrid').innerHTML=models.map(m=>'<div class="card model"><span class="tag">'+m[2]+'</span><h3>'+m[0]+'</h3><p><b>수익:</b> '+m[1]+'</p><p><b>채널:</b> '+m[3]+'</p><p><b>핵심:</b> '+m[4]+'</p></div>').join('');
+
+const channels=[
+['YouTube Shorts','검색·장기자산','비밀숏츠·쇼핑·앱','Global','https://studio.youtube.com/'],
+['TikTok','빠른 바이럴·상품테스트','쇼핑·일본·베트남','Global','https://www.tiktok.com/'],
+['Instagram Reels','브랜드·DM·쇼핑','상품·연예인·앱','Global','https://www.instagram.com/'],
+['Facebook Reels','Meta 확장 유통','생활·상품','Global','https://www.facebook.com/'],
+['Threads','텍스트 구매전환','쇼핑·공동구매','KR/US/JP','https://www.threads.net/'],
+['X','실시간 이슈·링크','뉴스·B2B·앱','Global','https://x.com/'],
+['Pinterest','검색형 시각콘텐츠','상품·라이프스타일','US/JP','https://www.pinterest.com/'],
+['Snapchat Spotlight','젊은층 숏폼','엔터·앱','US','https://www.snapchat.com/'],
+['LINE VOOM','일본/아시아 숏폼','일본 정보·쇼핑','JP','https://line.me/'],
+['Lemon8','라이프스타일 탐색','뷰티·푸드·여행','JP/SEA','https://www.lemon8-app.com/'],
+['LinkedIn','B2B·교육','앱·리드·전문콘텐츠','Global','https://www.linkedin.com/']
+];
+document.querySelector('#channelGrid').innerHTML=channels.map(c=>'<div class="card channel"><div class="row"><span class="tag">'+c[3]+'</span><span class="badge demo">GUIDE</span></div><h3>'+c[0]+'</h3><p>'+c[1]+'</p><p><b>추천:</b> '+c[2]+'</p><a target="_blank" href="'+c[4]+'" class="ghost">공식 화면 열기</a></div>').join('');
+
+const conns=['YouTube','TikTok','Instagram','Facebook','Threads','X','Pinterest','Snapchat','LINE VOOM','Lemon8'];
+const saved=JSON.parse(localStorage.getItem('rev-connect')||'{}');
+function drawConnections(){document.querySelector('#connectGrid').innerHTML=conns.map(n=>'<div class="card"><div class="row"><b>'+n+'</b><span class="badge '+(saved[n]?'pass':'demo')+'">'+(saved[n]?'가이드완료':'미연결')+'</span></div><p class="muted">실제 OAuth/API 인증은 별도 연동 후 검증</p><button class="ghost" data-c="'+n+'">'+(saved[n]?'완료 해제':'따라하기 완료')+'</button></div>').join('');document.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{saved[b.dataset.c]=!saved[b.dataset.c];localStorage.setItem('rev-connect',JSON.stringify(saved));drawConnections()})}drawConnections();
+
+document.querySelector('#recommend').onclick=()=>{const m=document.querySelector('#wizModel').value,c=document.querySelector('#wizCountry').value;const picks=m.includes('앱')?['YouTube Shorts','TikTok','Instagram Reels']:m.includes('쇼핑')?['TikTok','Instagram Reels','Threads','YouTube Shorts']:c==='일본'?['YouTube Shorts JP','TikTok JP','Instagram Reels JP']:['YouTube Shorts','TikTok','Instagram Reels'];document.querySelector('#wizOut').innerHTML=picks.map(x=>'<div class="check"><span>✓</span><div><b>'+x+'</b><div class="muted">'+c+' / '+m+' 추천</div></div></div>').join('')};
+
+const adsense=['자체 도메인 + HTTPS','독창적이고 실질적인 콘텐츠','탐색 가능한 메뉴/페이지 구조','개인정보처리방침','이용약관·연락처·운영자 정보','복제·저작권 침해 콘텐츠 점검','Search Console/인덱싱 점검','AdSense 사이트 추가','코드 삽입/소유권 확인','ads.txt','검토 요청','거절 시 정책센터 확인 후 재심사'];
+const admob=['Google Play/App Store 등록','AdMob 앱 등록','앱 준비상태 검토','스토어 연결/소유권 확인','app-ads.txt','광고단위 생성','SDK 설치','테스트 광고 검증','정책센터 확인'];
+function checks(id,arr,key){const s=JSON.parse(localStorage.getItem(key)||'{}');document.querySelector(id).innerHTML=arr.map((x,i)=>'<label class="check"><input type="checkbox" data-k="'+i+'" '+(s[i]?'checked':'')+'><span>'+x+'</span></label>').join('');document.querySelectorAll(id+' input').forEach(i=>i.onchange=()=>{s[i.dataset.k]=i.checked;localStorage.setItem(key,JSON.stringify(s))})}
+checks('#adsenseChecks',adsense,'adsense-check');checks('#admobChecks',admob,'admob-check');
+
+const factorySteps=['트렌드/참조자료 수집','국가·언어·수익모델 선택','경쟁콘텐츠·훅 분석','대본 생성','음성/TTS','영상·이미지·자막 편집','채널별 리사이즈·문구','다채널 배포','조회·CTR·구매·수익 수집','AI 다음 콘텐츠 추천'];
+document.querySelector('#factoryFlow').innerHTML=factorySteps.map((x,i)=>'<div class="card"><span class="tag">'+String(i+1).padStart(2,'0')+'</span><h3 style="font-size:12px">'+x+'</h3><p class="muted">입력 · AI 자동화 · 외부연결 · 주의점 · 완료기준</p></div>').join('');
+
+const initialRefs=[
+['https://www.youtube.com/watch?v=2PVinqGaNXU','비밀숏츠 기준영상','비밀숏츠','글로벌','PARTIAL'],
+['https://www.youtube.com/watch?v=wjdMe2nimCM','비밀숏츠 수익화 사례','비밀숏츠','한국','PARTIAL'],
+['https://www.youtube.com/watch?v=l5tZ9mT0SV0','숏폼 수익화','일반 숏폼 자동화','한국','PARTIAL'],
+['https://www.youtube.com/watch?v=zn2nB9jNmxU','Threads 쇼핑/제휴','Threads 쇼핑','한국','PARTIAL'],
+['https://www.youtube.com/watch?v=AyNZJdfrCo4','연예인 쇼핑숏츠','연예인 쇼핑숏츠','한국','PARTIAL'],
+['https://www.youtube.com/watch?v=y3SNXA0SA-4','AI 음악 플레이리스트','AI 음악','글로벌','PARTIAL'],
+['https://www.youtube.com/watch?v=7j0H97ts_LI','리셀·가격차익','리셀','한국','PARTIAL'],
+['https://www.youtube.com/watch?v=-enRpvAvNxs','일본 비밀숏츠','일본 비밀숏츠','일본','PARTIAL'],
+['https://www.youtube.com/watch?v=uBvD_6ESQLE','일본숏츠','일본 일반숏츠','일본','PARTIAL'],
+['https://www.youtube.com/watch?v=NDnUEJ212ws','일본숏츠 Benchmark','일본 일반숏츠','일본','PARTIAL'],
+['https://www.youtube.com/watch?v=BIINqKVyA90','확인 필요','미분류','글로벌','PARTIAL'],
+['https://youtu.be/jqRo_giIRAY','자동화 숏츠앱 만들기','자동화 숏츠앱','글로벌','PARTIAL'],
+['https://youtu.be/maS8dsL333M','추가 참조영상 maS8dsL333M','미분류','글로벌','PARTIAL'],
+['https://youtu.be/mpMo2GIynHw','동영상 만들기 툴 소개','동영상 만들기 툴 소개','글로벌','PARTIAL']
+];
+let refs=JSON.parse(localStorage.getItem('rev-refs')||'null')||initialRefs;
+function renderRefs(){document.querySelector('#refList').innerHTML=refs.map((r,i)=>'<div class="ref"><div class="row"><a target="_blank" href="'+r[0]+'">'+r[1]+'</a><span class="badge partial">'+r[4]+'</span></div><p><b>분류:</b> '+r[2]+' · <b>국가:</b> '+r[3]+'</p><p>분석: URL/사용자 지정 분류 기반. 실제 영상 본문 미확인 시 내용을 추정하지 않음. 확인항목: 훅·길이·자막·CTA·수익연결·자동화·권리정책.</p></div>').join('')}renderRefs();
+document.querySelector('#addRef').onclick=()=>{const u=document.querySelector('#refUrl').value.trim();if(!u)return alert('URL을 입력하세요');const t=document.querySelector('#refTitle').value.trim()||'사용자 등록 참조자료';const ty=document.querySelector('#refType').value==='자동분류'?'미분류':document.querySelector('#refType').value;const c=document.querySelector('#refCountry').value;refs.unshift([u,t,ty,c,'PARTIAL']);localStorage.setItem('rev-refs',JSON.stringify(refs));renderRefs();document.querySelector('#refUrl').value='';document.querySelector('#refTitle').value=''};
+
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.v));document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
+function go(v){document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));document.querySelector('#'+v).classList.add('on');document.querySelector('#title').textContent=views[v][0];document.querySelector('#desc').textContent=views[v][1];window.scrollTo({top:0,behavior:'smooth'})}
+
+const slideData=[['개요',['숏폼·쇼핑·앱·글로벌 수익화를 하나의 실행흐름으로 관리']],['시장기회',['조회수가 아니라 전환·구매·순이익 중심']],['수익모델 지도',models.slice(0,6).map(x=>x[0])],['국가전략',['한국: 빠른 쇼핑검증','일본: GAP/현지화','미국: 대형시장','베트남: K-content+Commerce']],['배포채널',['YouTube Shorts','TikTok','Instagram Reels','Threads','Facebook Reels + 확장채널']],['Google Ads 승인',['AdSense: 사이트 품질·정책·ads.txt','AdMob: 스토어·app-ads.txt·SDK·정책']],['6단계 실행흐름',['수익모델→국가→연결→따라하기→제작/업로드→수익']],['STAR45 자동화구조',['Trend Finder→GAP→Script→TTS→Video→Publisher→Revenue Optimizer']],['수익 대시보드',['조회→CTR→구매→매출→순이익→다음 콘텐츠']],['실행로드맵',['Phase 1 분석/가이드','Phase 2 자동생성','Phase 3 API 업로드','Phase 4 수익수집','Phase 5 자동최적화']]];
+let si=0;document.querySelector('#slides').innerHTML=slideData.map((s,i)=>'<div class="slide" data-s="'+i+'"><h2>'+s[0]+'</h2><ul>'+s[1].map(x=>'<li>'+x+'</li>').join('')+'</ul></div>').join('');
+function showSlide(){document.querySelectorAll('.slide').forEach(x=>x.classList.toggle('on',+x.dataset.s===si));document.querySelector('#ptCount').textContent=(si+1)+' / '+slideData.length}showSlide();
+document.querySelector('#ptBtn').onclick=()=>document.querySelector('#pt').classList.add('on');document.querySelector('#ptClose').onclick=()=>document.querySelector('#pt').classList.remove('on');document.querySelector('#ptNext').onclick=()=>{si=Math.min(slideData.length-1,si+1);showSlide()};document.querySelector('#ptPrev').onclick=()=>{si=Math.max(0,si-1);showSlide()};document.addEventListener('keydown',e=>{if(!document.querySelector('#pt').classList.contains('on'))return;if(e.key==='ArrowRight'){si=Math.min(slideData.length-1,si+1);showSlide()}if(e.key==='ArrowLeft'){si=Math.max(0,si-1);showSlide()}if(e.key==='Escape')document.querySelector('#pt').classList.remove('on')});
+</script>
+</body></html>
