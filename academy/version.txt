@@ -1,0 +1,2 @@
+STAR45 Revenue Academy v1.0.0
+Built for brain.star45.net/academy/
