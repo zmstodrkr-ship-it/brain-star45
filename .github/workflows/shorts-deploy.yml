@@ -1,5 +1,10 @@
 name: STAR45 Shorts deploy
 on:
+  pull_request:
+    paths:
+      - 'shorts/**'
+      - 'tests/smoke-single.mjs'
+      - '.github/workflows/shorts-deploy.yml'
   push:
     branches: [main]
     paths:
@@ -22,6 +27,7 @@ jobs:
           node-version: '22'
       - run: node tests/smoke-single.mjs
   deploy:
+    if: github.event_name != 'pull_request'
     needs: test
     runs-on: [self-hosted, Linux, X64]
     timeout-minutes: 10
@@ -69,3 +75,14 @@ jobs:
             [ -d "$BACKUP" ] && sudo mv "$BACKUP" "$TARGET"
             exit 1
           fi
+  public:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Public HTTPS verify
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 5 --retry-delay 5 --max-time 20 https://brain.star45.net/shorts/ | grep -q 'STAR45 Shorts'
+          echo 'STAR45_SHORTS_PUBLIC_HTTPS_PASS'
