@@ -14,7 +14,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: brain-star45-shorts-deploy
+  group: ${{ github.event_name == 'pull_request' && format('brain-star45-shorts-pr-{0}', github.event.pull_request.number) || 'brain-star45-shorts-deploy' }}
   cancel-in-progress: false
 jobs:
   test:
