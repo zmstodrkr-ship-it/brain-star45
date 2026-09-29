@@ -1,0 +1,26 @@
+name: STAR45 Shorts Check
+on:
+  pull_request:
+    paths:
+      - 'shorts/**'
+      - 'tests/smoke-single.mjs'
+      - '.github/workflows/shorts-check-single.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'shorts/**'
+      - 'tests/smoke-single.mjs'
+      - '.github/workflows/shorts-check-single.yml'
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Smoke test
+        run: node tests/smoke-single.mjs
