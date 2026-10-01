@@ -1,0 +1,23 @@
+name: STAR45 Shorts public verify
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/shorts-public-verify.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify public STAR45 Shorts v0.2
+        shell: bash
+        run: |
+          set -euo pipefail
+          BODY="$(curl -fsSL --retry 5 --retry-delay 3 --max-time 20 https://brain.star45.net/shorts/)"
+          printf '%s' "$BODY" | grep -q 'STAR45 Shorts v0.2'
+          printf '%s' "$BODY" | grep -q 'FIRST RUN SETUP'
+          printf '%s' "$BODY" | grep -q '가짜 수치 미표시'
+          printf '%s' "$BODY" | grep -q 'Meta AI'
+          echo 'STAR45_SHORTS_PUBLIC_V02_PASS'
